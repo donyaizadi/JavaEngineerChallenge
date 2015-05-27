@@ -11,7 +11,7 @@ import business.SimulationDataImpl;
 public abstract class SimulationStrategy {
 	
 	private SimulationDataImpl simulationData; 
-	double[] simulationlist; // the list for all 10000 simulation possible values
+	private double[] simulationlist; // the list for all 10000 simulation possible values
 	
 	public SimulationStrategy(SimulationDataImpl simulationData) {
 		this.simulationData = simulationData;
@@ -62,7 +62,7 @@ public abstract class SimulationStrategy {
 	}
 	
     
-	private double getPercentile(double [] data, double percentile) { 
+	public double getPercentile(double [] data, double percentile) { 
         Arrays.sort(data);
         double index = percentile*(data.length-1);
         int lower = (int)Math.floor(index);
@@ -78,4 +78,9 @@ public abstract class SimulationStrategy {
         
         return result;
      }
+
+	public double[] getSimulationlist() {
+		return simulationlist;
+	}
+
 }
